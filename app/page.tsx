@@ -1,20 +1,44 @@
-import Image from "next/image";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import Link from "./pages/link";
-import Head from "next/head";
+import { GetServerSideProps } from "next";
 import { Metadata } from "next";
 
-export async function generateMetadata(): Promise<Metadata> {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { query } = context;
+  const { title, description, image } = query;
+
   return {
-    title: "teeeeeeeest",
-    description: "deeeeeeeeeeeeesc",
+    props: {
+      title: title || "Default Title",
+      description: description || "Default Description",
+      image: image || "/default-image.png",
+    },
+  };
+};
+
+export async function generateMetadata({
+  title,
+  description,
+  image,
+}: any): Promise<Metadata> {
+  return {
+    title,
+    description,
+    openGraph: {
+      images: [
+        {
+          url: image,
+          alt: title,
+        },
+      ],
+    },
   };
 }
 
-export default function Home() {
+export default function Home({ title, description, image }: any) {
   return (
     <>
-      s<p>hhhhhhhhhhhhh</p>
+      <p>Title: {title}</p>
+      <p>Description: {description}</p>
+      {image && <img src={image} alt={title} />}
     </>
   );
 }
