@@ -1,9 +1,8 @@
-import Link from "./[title]-[description]-[image]";
+import Image from "next/image";
+import Link from "./link/[id]/[desc]/[image]/page";
 
 export default function Home() {
   return (
-    <>
-      <Link />
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
   );
 }
