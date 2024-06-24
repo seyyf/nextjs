@@ -1,4 +1,4 @@
-import Link from "./pages/[title]-[description]-[image]";
+import Link from "./[title]-[description]-[image]";
 
 export default function Home() {
   return (
