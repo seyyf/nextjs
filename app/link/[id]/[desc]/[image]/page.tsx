@@ -11,10 +11,10 @@ type Props = {
 
 export const generateMetadata = ({ params }: Props): Metadata => {
   return {
-    title: `${params.id}`,
-    description: `${params.desc}`,
     openGraph: {
       images: [{ url: `${params.image}`, alt: `${params.id}` }],
+      description: `${params.desc}`,
+      title: `${params.id}`,
     },
   };
 };
