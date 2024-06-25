@@ -11,6 +11,9 @@ type Props = {
 
 export const generateMetadata = ({ params }: Props): Metadata => {
   return {
+    metadataBase: new URL(
+      "https://decadance-staging.uteek.net/dashboard/detailEvent/66744977a42b2b2157ea6f9e"
+    ),
     openGraph: {
       images: [{ url: `${params.image}`, alt: `${params.id}` }],
       description: `${params.desc}`,
