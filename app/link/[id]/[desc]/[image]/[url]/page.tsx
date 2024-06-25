@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -29,6 +30,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
 };
 
 const Link = ({ params }: Props) => {
+  redirect(`https://decadance-staging.uteek.net/${params.url}`);
   return <></>;
 };
 
