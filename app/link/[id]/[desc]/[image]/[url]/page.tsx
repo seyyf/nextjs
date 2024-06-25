@@ -17,7 +17,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   const image = decodeURIComponent(encodedImage);
   const url = decodeURIComponent(encodedUrl);
   return {
-    metadataBase: new URL("https://decadance-staging.uteek.net/"),
+    metadataBase: new URL(`${process.env.URL}`),
     openGraph: {
       images: [
         { url: `${image}`, alt: `${params.id}`, width: 500, height: 600 },
@@ -30,9 +30,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
 };
 
 const Link = ({ params }: Props) => {
-  const econdedUrl = decodeURIComponent(
-    `https://decadance-staging.uteek.net/${params.url}`
-  );
+  const econdedUrl = decodeURIComponent(`${process.env.URL}${params.url}`);
   redirect(econdedUrl);
   return <></>;
 };
