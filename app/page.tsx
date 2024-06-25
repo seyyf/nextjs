@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "./link/[id]/[desc]/[image]/page";
+import Link from "./link/[id]/[desc]/[image]/[url]/page";
 
 export default function Home() {
   return (

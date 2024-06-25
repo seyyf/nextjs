@@ -6,14 +6,15 @@ type Props = {
     id: string;
     desc: string;
     image: string;
+    url: string;
   };
 };
 
 export const generateMetadata = ({ params }: Props): Metadata => {
   const encodedImage = params.image;
-
+  const encodedUrl = params.url;
   const image = decodeURIComponent(encodedImage);
-  console.log(image, "image");
+  const url = decodeURIComponent(encodedUrl);
   return {
     metadataBase: new URL("https://decadance-staging.uteek.net/"),
     openGraph: {
@@ -22,6 +23,7 @@ export const generateMetadata = ({ params }: Props): Metadata => {
       ],
       description: `${params.desc}`,
       title: `${params.id}`,
+      url: `${url}`,
     },
   };
 };
