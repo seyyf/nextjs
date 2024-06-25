@@ -30,7 +30,10 @@ export const generateMetadata = ({ params }: Props): Metadata => {
 };
 
 const Link = ({ params }: Props) => {
-  redirect(`https://decadance-staging.uteek.net/${params.url}`);
+  const econdedUrl = decodeURIComponent(
+    `https://decadance-staging.uteek.net/${params.url}`
+  );
+  redirect(econdedUrl);
   return <></>;
 };
 
