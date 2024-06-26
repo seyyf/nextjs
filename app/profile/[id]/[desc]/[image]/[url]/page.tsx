@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -28,7 +29,9 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   };
 };
 
-const page = () => {
+const page = ({ params }: Props) => {
+  const econdedUrl = decodeURIComponent(`${process.env.URL}${params.url}`);
+  redirect(econdedUrl);
   return <></>;
 };
 
